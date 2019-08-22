@@ -2,10 +2,17 @@ require './lib/tic_tac_toe.rb'
 
 RSpec.describe TicTacToe do
     describe ' #initialize_Tic_tac_toe ' do
-        it " save the correct MARK in each player" do
+        it " save the correct MARK in each player if player1 is X" do
             game = TicTacToe.new('X')
-            expect(game.player1.identity).to eql('X')
+            cond = game.player1.identity == "X" && game.player2.identity == "O" ? true : false
+            expect(cond).to be true
         end
+
+        it " save the correct MARK in each player if player1 is O" do
+            game = TicTacToe.new("O")
+            cond = game.player1.identity == "O" && game.player2.identity == "X" ? true : false
+            expect(cond).to be true
+        end 
     end
 
     describe ' #save_choise_player ' do
