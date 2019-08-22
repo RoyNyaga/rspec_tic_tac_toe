@@ -28,8 +28,29 @@ RSpec.describe TicTacToe do
         end
     end
 
+    describe ' #check_choise_player' do
+        it ' when a player select a number of the empty grid ' do
+            game = TicTacToe.new('X')
+            cond = game.board.check_choise_player(game.player1, 1)
+            cond = game.board.check_choise_player(game.player2, 2)
+            expect(cond).to be true
+        end
+
+        it ' when a player select a number of the grid with saves' do
+            game = TicTacToe.new('X')
+            game.board.save_choise_player(game.player1, 1)
+            game.board.save_choise_player(game.player2, 2)
+            game.board.save_choise_player(game.player1, 3)
+
+            cond = game.board.check_choise_player(game.player1, 1)
+            cond = game.board.check_choise_player(game.player2, 2) 
+            cond = game.board.check_choise_player(game.player2, 3) 
+            expect(cond).to be false
+        end
+    end
+
     describe ' #save_choise_player ' do
-        it " when a mark is saved in the grid of each Player" do
+        it " when a mark is saved in the grid of each Player selection" do
             game = TicTacToe.new('X')
 
             game.board.save_choise_player(game.player1, 1)
