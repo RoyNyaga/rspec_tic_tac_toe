@@ -80,4 +80,22 @@ RSpec.describe TicTacToe do
       expect(cond).to be true
     end
   end
+
+  describe '#check space' do 
+    it 'returns true when a space is availabe in the board' do 
+      game = TicTacToe.new("X")
+      cond = game.board.space?
+      expect(cond).to be true
+    end 
+
+    it 'returns false when a space is not availabe in the board' do 
+      game = TicTacToe.new("X")
+      9.times do |n|
+        game.board.save_choise_player(game.player1, n+1)
+      end
+      cond = game.board.space?
+      expect(cond).to be false
+    end 
+  end 
+
 end
