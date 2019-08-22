@@ -1,18 +1,33 @@
 require './lib/tic_tac_toe.rb'
 
 RSpec.describe TicTacToe do
+    describe ' #save_choise_player ' do
+        it " when a mark is saved in the grid of each Player" do
+            game = TicTacToe.new('X')
+
+            game.board.save_choise_player(game.player1, 1)
+            cond = game.board.main_board[0][0] == game.player1.identity ? true : false
+
+            game.board.save_choise_player(game.player2, 3)
+            cond = game.board.main_board[0][2] == game.player2.identity ? true : false
+            
+            expect(cond).to eql(true)
+        end
+    end
+
     describe '#check_winnner' do
         it "player is the winner" do
-            tic_tac_toe = TicTacToe.new('X')
-            tic_tac_toe.board.main_board[0][0] = 'X'
-            tic_tac_toe.board.main_board[0][1] = 'X'
-            tic_tac_toe.board.main_board[0][2] = 'X'
-            mark = ''
-            if tic_tac_toe.board.main_board[0][0] == tic_tac_toe.board.main_board[0][1] &&
-                tic_tac_toe.board.main_board[0][1] == tic_tac_toe.board.main_board[0][2]
-                mark ='X'
+            game = TicTacToe.new('O')
+            game.board.save_choise_player(game.player1, 1)
+            game.board.save_choise_player(game.player1, 2)
+            game.board.save_choise_player(game.player1, 3)
+            cond = false
+            if game.board.main_board[0][0] == game.board.main_board[0][1] &&
+                game.board.main_board[0][1] == game.board.main_board[0][2] && 
+                game.board.main_board[0][2] == game.player1.identity
+                cond = true
             end
-            expect(mark).to eql('X')
+            expect(cond).to eql(true)
         end
     end 
 end
