@@ -43,9 +43,9 @@ RSpec.describe TicTacToe do
       game.board.save_choise_player(game.player2, 2)
       game.board.save_choise_player(game.player1, 3)
 
-      cond = game.board.check_choise_player(game.player1, 1) && 
-                game.board.check_choise_player(game.player2, 2) &&
-                game.board.check_choise_player(game.player2, 3)
+      cond = game.board.check_choise_player(game.player1, 1) &&
+             game.board.check_choise_player(game.player2, 2) &&
+             game.board.check_choise_player(game.player2, 3)
 
       expect(cond).to be false
     end
