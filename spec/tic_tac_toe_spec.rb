@@ -15,6 +15,19 @@ RSpec.describe TicTacToe do
         end 
     end
 
+    describe ' #initialize_Board ' do
+        it " test the correct number on each cell of the grid" do
+            game = TicTacToe.new('X')
+            cond = true
+            m_board = game.board.main_board.flatten
+            m_board.each_with_index do |cell, index| 
+                cond = cell.to_i == (index + 1) ? true : false  
+                break unless cond 
+            end
+            expect(cond).to be true
+        end
+    end
+
     describe ' #save_choise_player ' do
         it " when a mark is saved in the grid of each Player" do
             game = TicTacToe.new('X')
