@@ -3,16 +3,22 @@
 require '../lib/tic_tac_toe.rb'
 
 # Show the rules of the game at the beginning
+# rubocop:disable Metrics/MethodLength
 def show_rules
   puts '*******WELCOME AND GET READY FOR A ROUND OF TIC TAC TOE*******'
   puts 'PLEASE: make sure to follow the instruction bellow'
-  puts 'STEP ONE: Two players are needed for a session: Player one and Player two'
-  puts 'STEP TWO: The winner has to align atleast three marks veritically, horizontally or obliguely'
-  puts 'STEP THREE: Players are not allowed to repeat their choice or select an already selected space'
-  puts 'STEP FOUR: The game is a draw in case all the spaces of the board are used up and the round restarted'
+  puts 'STEP ONE: Two players are needed for a session:
+  Player one and Player two'
+  puts 'STEP TWO: The winner has to align atleast three
+  marks veritically, horizontally or obliguely'
+  puts 'STEP THREE: Players are not allowed to repeat their
+  choice or select an already selected space'
+  puts 'STEP FOUR: The game is a draw in case all the spaces
+  of the board are used up and the round restarted'
   puts '***********Have fun*************'
 end
 
+# rubocop:enable Metrics/MethodLength
 # The function shows the Rules of the game
 def show_draw
   puts 'No more avalaible spaces, consider it a draw'
@@ -43,6 +49,8 @@ end
 # This function finish when 'X' or 'O' were selected, othercases are not allowed
 # After the choising the function show the Mark of each Player and a message for
 # the beginning of the game
+
+# rubocop: disable Style/GuardClause
 def select_player_mark
   puts 'PLAYER N° 1, select a mark: (X) or (O)'
   loop do
@@ -56,6 +64,7 @@ def select_player_mark
   end
 end
 
+# rubocop: enable Style/GuardClause
 # This function show the name of the players and their marks.
 def show_start_game(game)
   puts "#{game.player1.name} is: #{game.player1.identity}"
