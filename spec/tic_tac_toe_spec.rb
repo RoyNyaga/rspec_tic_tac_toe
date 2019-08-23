@@ -3,7 +3,6 @@
 require './lib/tic_tac_toe.rb'
 
 RSpec.describe TicTacToe do
-
   describe ' #initialize_Tic_tac_toe ' do
     it ' save the correct MARK in each player if player1 is X' do
       game = TicTacToe.new('X')
@@ -28,7 +27,7 @@ RSpec.describe TicTacToe do
       if game.board.main_board[0][0] == game.board.main_board[0][1] &&
          game.board.main_board[0][1] == game.board.main_board[0][2] &&
          game.board.main_board[0][2] == game.player1.identity
-          cond = true
+        cond = true
       end
       expect(cond).to be true
     end
