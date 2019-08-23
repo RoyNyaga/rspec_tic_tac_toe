@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require '../lib/tic_tac_toe.rb'
+require './lib/tic_tac_toe.rb'
 
 # Show the rules of the game at the beginning
 # rubocop:disable Metrics/MethodLength
@@ -100,8 +100,8 @@ loop do
     puts "#{player_turn.name} turn" # use string interpulation, talk to Anthony
     loop do
       number = select_number
-      if game.board.check_choise_player(player_turn, number)
-        game.board.save_choise_player(player_turn, number)
+      if game.board.check_choise_player(number)
+        game.board.save_choise_player(player_turn.identity, number)
         break
       else
         puts 'Choose another number'
