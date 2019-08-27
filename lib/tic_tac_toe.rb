@@ -26,7 +26,7 @@ class Board
   end
 
   # i deleted some comments from here
-  def check_choise_player(_player, number)
+  def check_choise_player(number)
     array_board = @main_board.flatten
     if array_board[number - 1] == 'X' || array_board[number - 1] == 'O'
       return false
@@ -36,26 +36,26 @@ class Board
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
-  def save_choise_player(player, number)
+  def save_choise_player(mark, number)
     case number
     when 1
-      @main_board[0][0] = player.identity
+      @main_board[0][0] = mark
     when 2
-      @main_board[0][1] = player.identity
+      @main_board[0][1] = mark
     when 3
-      @main_board[0][2] = player.identity
+      @main_board[0][2] = mark
     when 4
-      @main_board[1][0] = player.identity
+      @main_board[1][0] = mark
     when 5
-      @main_board[1][1] = player.identity
+      @main_board[1][1] = mark
     when 6
-      @main_board[1][2] = player.identity
+      @main_board[1][2] = mark
     when 7
-      @main_board[2][0] = player.identity
+      @main_board[2][0] = mark
     when 8
-      @main_board[2][1] = player.identity
+      @main_board[2][1] = mark
     when 9
-      @main_board[2][2] = player.identity
+      @main_board[2][2] = mark
     end
   end
   # rubocop:enable Metrics/CyclomaticComplexity
